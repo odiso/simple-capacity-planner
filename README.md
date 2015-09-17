@@ -14,7 +14,7 @@ The interface is regrouped in ```dashboards``` tabs, letting you organise your m
 
 On each dashboards, you can add ```components```. Components are main blocks, having a dedicated Warning and Critical Threshold.
 
-![Component example](http://imageshack.com/a/img911/9926/Gs7qzQ.png "Component example")
+![Component example](http://img15.hostingpics.net/pics/407493741.png "Component example")
 
 Each components possesses ```elements```, which are single sources of capacity to monitor. Each element have a current capacity and a max capacity.
 
@@ -22,7 +22,7 @@ The capacity planner works monthly, which means each element can have a monthly 
 
 Then you can visualize the evolution on graphs :
 
-![Simple graph](http://imageshack.com/a/img538/8730/Ms4ekO.png "Simple graph")
+![Simple graph](http://img15.hostingpics.net/pics/589640262.png "Simple graph")
 
 
 
