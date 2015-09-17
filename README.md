@@ -10,7 +10,7 @@ Main page is a condensed version of all monitored components for a quick look.
 The interface is regrouped in ```dashboards``` tabs, letting you organise your monitoring.
 - The Main dashboard displays a summary of all monitored things.
 
-![Main dashboard](http://imageshack.com/a/img905/3006/HQuEH1.jpg "Main dashboard")
+![Main dashboard](http://img15.hostingpics.net/pics/647030placeit.jpg "Main dashboard")
 
 On each dashboards, you can add ```components```. Components are main blocks, having a dedicated Warning and Critical Threshold.
 
