@@ -1,0 +1,326 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title data-text="app_name"></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/foundation.css">
+        <link rel="stylesheet" href="css/jquery.dataTables.css">
+        <link rel="stylesheet" href="css/dataTables.fixedColumns.min.css">
+        <link rel="stylesheet" href="css/dataTables.fixedHeader.min.css">
+        <link rel="stylesheet" href="css/foundation-icons/foundation-icons.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Top navigation bar -->
+
+        <nav class="top-bar" data-topbar role="navigation">
+            <div class="row">
+                <div class="small-6 large-6 columns">
+                    <img src="img/cplogo.png" id="logo">
+                    <ul class="title-area">
+                        <li class="name">
+                            <h1><a href="#" data-text="app_name"></a></h1>
+                        </li>
+                    </ul>
+                </div>
+                <div class="small-6 large-6 columns">
+                    <ul class="right">
+                        <li class="has-form">
+                            <a href="#" class="small button hide" data-text="log_off"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="small-0 large-1 columns"></div>
+            </div>
+        </nav>
+
+        <!-- Main content section -->
+
+        <section>
+            <div class="row">
+                <div class="small-12 large-12 columns main-section" id="dashboardContainer">
+                    <ul class="tabs contained" data-tab>
+                        <li class="tab-title active" id="dashboardTab-main"><a href="#dashboardPanel-main" data-text="main_tab"></a></li>
+                        <li class="tab-title" id="dashboardTab-add"><a href="#dashboardPanel-add" class="tinyiconbutton fi-plus"></a></li>
+                    </ul>
+                    <div class="tabs-content">
+                        <div class="content active" id="dashboardPanel-main">
+
+                            <!-- Main tab content -->
+
+
+                        </div>
+                        <div class="content" id="dashboardPanel-add">
+                            <form data-abide="ajax" id="create_dashboard">
+                                <span data-text="create_dashboard_form_title"></span>
+                                <div class="row">
+                                    <div class="large-4 columns">
+                                        <div class="name-field">
+                                            <div class="name-field">
+                                                <label><span data-text="create_dashboard_name_label"></span> <small data-text="form_required"></small>
+                                                    <input type="text" required pattern="name_pattern" name="name" id="create_dashboard_name" data-placeholder="create_dashboard_name_placeholder">
+                                                </label>
+                                                <small class="error" data-text="create_dashboard_name_error"></small>
+                                            </div>
+                                        </div>
+                                        <button type="submit" data-text="form_submit"></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!---------------------------------------------------------------------->
+        <!--                        JavaScript Resources                      -->
+        <!---------------------------------------------------------------------->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="js/vendor/foundation.min.js"></script>
+        <script src="js/vendor/jquery.dataTables.min.js"></script>
+        <script src="js/vendor/dataTables.fixedColumns.min.js"></script>
+        <script src="js/vendor/dataTables.fixedHeader.min.js"></script>
+        <script src="js/vendor/dataTables.oSortNumericInStrings.js"></script>
+        <script src="js/vendor/jquery.canvasjs.min.js"></script>
+
+        <!---------------------- Local JavaScript classes ---------------------->
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/UI.js"></script>
+        <script src="js/UI.tab.js"></script>
+        <script src="js/UI.dataTable.js"></script>
+        <script src="js/UI.chart.js"></script>
+        <script src="js/Webservice.js"></script>
+        <script src="js/Dashboard.js"></script>
+        <script src="js/Component.js"></script>
+        <script src="js/Charts.js"></script>
+        <script src="js/Element.js"></script>
+        <script src="js/Indicator.js"></script>
+
+        <!---------------------------------------------------------------------->
+        <!--                        UI Modal Templates                        -->
+        <!---------------------------------------------------------------------->
+
+        <!----------------------- Webservice error Modal ----------------------->
+
+        <div id="errorModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <h3 id="modalTitle" data-text="error_title"></h3>
+            <p class="lead"></p>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+        <!----------------------- Rename Dashboard Modal ----------------------->
+
+        <div id="renameDashboardModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <form data-abide="ajax" id="rename_dashboard">
+                <span data-text="rename_dashboard_form_title"></span>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <div class="name-field">
+                            <div class="name-field">
+                                <label><span data-text="create_dashboard_name_label"></span> <small data-text="form_required"></small>
+                                    <input type="hidden" name="id" id="rename_dashboard_id" data-placeholder="create_dashboard_name_placeholder">
+                                    <input type="text" required pattern="name_pattern" name="name" id="rename_dashboard_name" data-placeholder="create_dashboard_name_placeholder">
+                                </label>
+                                <small class="error" data-text="create_dashboard_name_error"></small>
+                            </div>
+                        </div>
+                        <button type="submit" data-text="form_submit"></button>
+                    </div>
+                </div>
+            </form>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+        <!----------------------- Delete Dashboard Modal ----------------------->
+
+        <div id="deleteDashboardModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <p data-text="delete_dashboard_confirmation"></p>
+            <div class="right">
+                <a href="#" class="button alert deleteButton" data-text="form_delete"></a>
+                <a href="#" class="button secondary cancelButton" data-text="form_cancel"></a>
+            </div>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+        <!----------------------- Create & Edit Component Modal ----------------------->
+
+        <div id="editComponentModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <form data-abide="ajax" id="edit_component">
+                <span data-text="edit_component_form_title"></span>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label><span data-text="edit_component_name"></span> <small data-text="form_required"></small>
+                            <input type="hidden" name="id" id="edit_component_id">
+                            <input type="hidden" name="dashboard_id" id="edit_component_dashboard_id">
+                            <input type="text" required pattern="name_pattern" name="name" id="edit_component_name" data-placeholder="edit_component_name_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_component_name_error"></small>
+                    </div>
+                    <div class="large-6 columns">
+                        <label><span data-text="edit_component_ratio_modifier"></span> <small data-text="form_required"></small>
+                            <select required name="ratioModifier" id="edit_component_ratio_modifier">
+                                <option data-text="ratio_modifier_default" value="default"></option>
+                                <option data-text="ratio_modifier_ruleOutMaxCapacity" value="ruleOutMaxCapacity"></option>
+                            </select>
+                        </label>
+                        <small class="error" data-text="edit_component_threshold_ratio_modifier"></small>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-3 columns">
+                        <label><span data-text="edit_component_threshold_warning"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="threshold_pattern" name="thresholdWarning" id="edit_component_threshold_warning" data-placeholder="edit_component_threshold_warning_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_component_threshold_warning_error"></small>
+                    </div>
+                    <div class="large-3 columns">
+                        <label><span data-text="edit_component_threshold_critic"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="threshold_pattern" name="thresholdCritic" id="edit_component_threshold_critic" data-placeholder="edit_component_threshold_critic_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_component_threshold_critic_error"></small>
+                    </div>
+                    <div class="large-4 columns"></div>
+                </div>
+                <button type="submit" data-text="form_submit"></button>
+            </form>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+        <!----------------------- Create & Edit Element Modal ----------------------->
+
+        <div id="editElementModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <form data-abide="ajax" id="edit_element">
+                <span data-text="edit_element_form_title"></span>
+                <div class="row">
+                    <div class="large-4 columns">
+                        <label><span data-text="edit_element_name"></span> <small data-text="form_required"></small>
+                            <input type="hidden" name="id" id="edit_element_id">
+                            <input type="hidden" name="component_id" id="edit_element_component_id">
+                            <input type="text" required pattern="name_pattern" name="name" id="edit_element_name" data-placeholder="edit_element_name_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_element_name_error"></small>
+                    </div>
+                    <div class="large-4 columns">
+                        <label><span data-text="edit_element_key"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="key_pattern" name="referenceKey" id="edit_element_key" data-placeholder="edit_element_key_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_element_key_error"></small>
+                    </div>
+                    <div class="large-4 columns">
+                        <label><span data-text="edit_element_value"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="referenceValue_pattern" name="referenceValue" id="edit_element_value" data-placeholder="edit_element_value_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_element_value_error"></small>
+                    </div>
+                </div>
+                <button type="submit" data-text="form_submit"></button>
+            </form>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+        <!----------------------- Chart Modal ----------------------->
+        <div id="chartModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <div id="chartContainer" style="height: 250px; width: 100%;"></div>
+            <br>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+        <!----------------------- Delete Component Modal ----------------------->
+
+        <div id="deleteComponentModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <p data-text="delete_component_confirmation"></p>
+            <div class="right">
+                <a href="#" class="button alert deleteButton" data-text="form_delete"></a>
+                <a href="#" class="button secondary cancelButton" data-text="form_cancel"></a>
+            </div>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+        <!----------------------- Delete Element Modal ----------------------->
+
+        <div id="deleteElementModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <p data-text="delete_element_confirmation"></p>
+            <div class="right">
+                <a href="#" class="button alert deleteButton" data-text="form_delete"></a>
+                <a href="#" class="button secondary cancelButton" data-text="form_cancel"></a>
+            </div>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+
+
+
+        <!----------------------- Create & Edit Indicator ----------------------->
+
+        <div id="editIndicatorModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <form data-abide="ajax" id="edit_indicator">
+                <input type="hidden" name="element_id" id="edit_indicator_element_id">
+                <input type="hidden" name="month" id="edit_indicator_month">
+                <input type="hidden" name="year" id="edit_indicator_year">
+                <span data-text="edit_indicator_form_title"></span>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label><span data-text="edit_indicator_value"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="value_pattern" name="value" id="edit_indicator_value" data-placeholder="edit_indicator_value_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_indicator_value_error"></small>
+                    </div>
+                    <div class="large-6 columns">
+                        <label><span data-text="edit_indicator_referenceValue"></span> <small data-text="form_required"></small>
+                            <input type="text" required pattern="referenceValue_pattern" name="referenceValue" id="edit_indicator_referenceValue" data-placeholder="edit_indicator_referenceValue_placeholder">
+                        </label>
+                        <small class="error" data-text="edit_indicator_referenceValue_error"></small>
+                    </div>
+                </div>
+                <button type="submit" data-text="form_submit"></button>
+            </form>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+
+
+        <!----------------------- Date Column Adding Form ----------------------->
+
+        <div id="addDateColumnModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <form data-abide="ajax" id="add_column_form">
+                <span data-text="add_datecolumn_form_title"></span>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <label><span data-text="add_datecolumn_label"></span> <small data-text="form_required"></small>
+                            <input type="month" name="datecolumn" id="add_datecolumn_monthpicker">
+                        </label>
+                        <small class="error" data-text="add_datecolumn_error"></small>
+                    </div>
+                </div>
+                <button type="submit" data-text="form_submit"></button>
+            </form>
+            <a class="close-reveal-modal" aria-label="">&#215;</a>
+        </div>
+
+
+
+    </body>
+</html>

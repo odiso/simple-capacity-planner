@@ -1,0 +1,3 @@
+Options +FollowSymlinks
+RewriteEngine On
+RewriteRule ^([^/]*)/([^/]*)/?$	Gateway.php?client=$1&method=$2&%{QUERY_STRING}	[L]

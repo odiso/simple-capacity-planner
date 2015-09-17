@@ -1,0 +1,313 @@
+/* main background */
+body {
+    background : #003f54;
+    min-width: 800px;
+}
+
+.clear
+{
+    clear:both;
+}
+
+.hide
+{
+    display: none;
+}
+
+.browserupgrade
+{
+    background: #FFF;
+}
+
+
+
+/* --------------------------------------------------
+    Top Bar
+-------------------------------------------------- */
+
+/* top bar style */
+.top-bar {
+    background : #0078a0;
+}
+
+.top-bar a
+{
+    font-size : 1em;
+    color : #FFFFFF;
+}
+
+.top-bar #logo
+{
+    width:2.2em;
+    margin:0.2em -0.5em 0em 1em;
+    float:left;
+}
+
+@media only screen and (max-width: 40em){
+    .top-bar .button, .top-bar button {
+        position: relative;
+        top: 0.52rem !important;
+    }
+    .top-bar a
+    {
+        display:none;
+    }
+
+}
+
+/* --------------------------------------------------
+    Main section
+-------------------------------------------------- */
+
+/* main row width */
+.row {
+    max-width: none;
+}
+
+
+.main-section {
+    padding:2em;
+}
+
+
+/* --------------------------------------------------
+    Tabs
+-------------------------------------------------- */
+.tabs {
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size:12px !important;
+}
+
+.tabs li {
+    float: left;
+    margin: 0 .5rem 0 0;
+    background: #fff;
+    border-radius: 5px 0px 0px 0px;
+}
+
+.tabs a {
+    position: relative;
+    background: #ddd;
+    float: left;
+    text-decoration: none;
+    color: #444;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    border-radius: 5px 0 0 0;
+    box-shadow: 0 2px 2px rgba(0,0,0,.4);
+}
+
+.tabs a:hover,
+.tabs a:hover::after,
+.tabs a:focus,
+.tabs a:focus::after {
+    background: #FFFFFF;
+}
+.tabs dd > a:hover, .tabs .tab-title > a
+{
+    background: #DDDDDD;
+    padding: .6rem 1rem .6rem 1.4rem;
+    font-size:0.8rem;
+}
+.tabs dd > a:hover, .tabs .tab-title > a:hover{
+    background: #FFFFFF;
+}
+
+.tabs a:focus {
+    outline: 0;
+}
+
+.tabs a::after {
+    content:'';
+    position:absolute;
+    z-index: 1;
+    top: 0;
+    right: -.5em;
+    bottom: 0;
+    width: 1rem;
+    background: #ddd;
+    box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+    transform: skew(10deg);
+    border-radius: 0 5px 0 0;
+}
+
+.tabs .active a,
+.tabs .active a::after {
+    background: #fff;
+    z-index: 3;
+}
+
+.tabs-content{
+    background: #FFFFFF;
+    padding:0em 1rem;
+    border-radius: 0 5px 5px 5px;
+    z-index: 2;
+    box-shadow: 0 -2px 3px -2px rgba(0, 0, 0, .5);
+    margin-top:-1px;
+}
+
+.tabs li:last-child a {
+    padding: .6rem .7rem .6rem 1rem;
+}
+
+
+/* --------------------------------------------------
+    Form
+-------------------------------------------------- */
+
+label{
+    margin-top:0.55em;
+}
+
+.smallMarginRight
+{
+    margin-right: 0.5em !important;
+}
+
+.supertiny
+{
+    padding: 0.315rem 0.625rem 0.34rem 0.625rem;
+    font-size: 0.6875rem;
+    margin:0;
+}
+.iconbutton
+{
+    padding: 0.1em 0.4em 0em;
+    font-size: 1.6rem;
+    margin:0 0 0.3em 0;
+}
+.tinyiconbutton
+{
+    padding: 0.1em 0.4em 0em;
+    font-size: 1rem;
+    margin:0 0 0 0;
+}
+
+/* --------------------------------------------------
+    Components
+-------------------------------------------------- */
+
+/* Ensure that the demo table scrolls */
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    margin: 0 auto;
+}
+
+.component_name
+{
+    clear:both;
+    border-top: 1px solid #F0F0F0;
+    padding-top: 0.6em;
+}
+
+.dataTable {
+    margin: 0 !important;
+}
+
+.aDataTable thead th, .aDataTable tbody td, .aDataTable tfoot td{
+    text-align:center;
+}
+
+.aDataTable thead tr th:last-child{
+    background: #e6e6e6;
+}
+.aDataTable tbody tr td:last-child{
+    font-weight: bold;
+}
+.aDataTable tbody td:last-child h2{
+    font-weight: bold !important;
+}
+.aDataTable tfoot tr td:last-child{
+    background: #e6e6e6;
+    font-weight: bold !important;
+}
+
+.aDataTable tfoot tr td:last-child h2{
+    font-weight: bold !important;
+}
+
+.aDataTable tbody td .cell_number{
+    float:right;
+    margin-top:0em;
+    margin-right:1.2em;
+    font-size:0.85em;
+}
+.aDataTable tbody td .cell{
+    display:inline-block;
+    margin:auto;
+}
+
+.aDataTable tbody td hr{
+    margin:0;
+}
+.aDataTable tbody td h2 {
+    float: right;
+    margin:0.2em 0 0 0;
+    font-size:1.6em;
+}
+
+.aDataTable tfoot td{
+    font-weight: normal !important;
+}
+
+.aDataTable tfoot td .cell_number{
+    float:left;
+    margin-top:0.4em;
+    margin-right:1em;
+}
+
+.aDataTable tfoot td hr{
+    margin:0;
+}
+.aDataTable tfoot td h2 {
+    float: right;
+    margin:0;
+}
+
+.DTFC_LeftBodyLiner
+{
+    overflow:hidden;
+}
+
+
+.dataTables_empty {
+    display:none;
+}
+
+.aDataTable tfoot sup
+{
+    cursor:help;
+}
+
+/* --------------------------------------------------
+    Elements
+-------------------------------------------------- */
+.element-name
+{
+    cursor:pointer;
+    text-align:left;
+}
+
+.safe{
+    color:#368a55;
+}
+.warn{
+    color:#cf6e0e;
+
+}
+.critic{
+    color:#cf2a0e;
+}
+
+
+/* --------------------------------------------------
+    Indicators
+-------------------------------------------------- */
+
+.editable
+{
+    cursor:pointer;
+}
