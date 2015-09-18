@@ -43,3 +43,7 @@ define ('DB_NAME', 'capacityplanner');
 Language files are located in folder ```/js/languages/```
 Current language is french. English language will be available soon !
 - profit !
+
+# License
+
+Simple Capacity Planner is under GPLv3 License - http://www.gnu.org/licenses/gpl-3.0.fr.html
