@@ -22,15 +22,15 @@ class Frontservices {
 
     // Dashboards services
 
-    public function createDashboard($name)
+    public function createDashboard($name, $thresholdWarning, $thresholdCritic)
     {
-        $id = Dashboard::createDashboard($name);
+        $id = Dashboard::createDashboard($name, $thresholdWarning, $thresholdCritic);
         return array('result' => 'ok', 'id' => $id);
     }
 
-    public function updateDashboard($id, $name)
+    public function updateDashboard($id, $name, $thresholdWarning, $thresholdCritic)
     {
-        Dashboard::updateDashboard($id, $name);
+        Dashboard::updateDashboard($id, $name, $thresholdWarning, $thresholdCritic);
         return array('result' => 'ok');
     }
 
@@ -42,17 +42,17 @@ class Frontservices {
 
     // Components services
 
-    public function createComponent($dashboard_id, $name, $thresholdWarning, $thresholdCritic, $ratioModifier)
+    public function createComponent($dashboard_id, $name, $thresholdWarning, $thresholdCritic, $ratioModifier, $useForGlobalRatio)
     {
         $id = Component::createComponent($name, $dashboard_id);
-        Component::updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier);
+        Component::updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier, $useForGlobalRatio);
 
         return array('result' => 'ok', 'id' => $id);
     }
 
-    public function updateComponent($id, $dashboard_id, $name, $thresholdWarning, $thresholdCritic, $ratioModifier)
+    public function updateComponent($id, $dashboard_id, $name, $thresholdWarning, $thresholdCritic, $ratioModifier, $useForGlobalRatio)
     {
-        Component::updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier);
+        Component::updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier, $useForGlobalRatio);
         return array('result' => 'ok', 'id' => $id);
     }
 

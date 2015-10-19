@@ -10,7 +10,7 @@ $(document).ready(function(){
                     patterns: {
                         name_pattern: /^[a-zA-Z0-9áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ\-\s']{1,256}$/,
                         threshold_pattern: /^[1-9][0-9]?$|^100$/,
-                        key_pattern: /^[a-zA-Z0-9\-\s']{1,16}$/,
+                        key_pattern: /^[a-zA-Z0-9\-\s']{1,32}$/,
                         value_pattern: /^[0-9]+(\.([0-9]+))*$/,
                         referenceValue_pattern: /^[1-9][0-9]*(\.([0-9]+))*$/
                     }
@@ -24,6 +24,9 @@ $(document).ready(function(){
                 /* List all elements and their properties */
                 Element.elementList = data.elements;
 
+                /* List all component and their properties */
+                Component.componentList = data.components;
+
                 /* Parse and display Dashboard Tabs */
                 if(data.dashboards.length)
                 {
@@ -34,8 +37,6 @@ $(document).ready(function(){
                 }
 
                 /* Parse and display Component DataTables */
-                Component.componentList = data.components;
-
                 if(data.components.length)
                 {
                     for(var c in data.components)

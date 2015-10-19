@@ -221,18 +221,20 @@ var Component = {
          $('#edit_component_threshold_warning').val(component.thresholdWarning);
          $('#edit_component_threshold_critic').val(component.thresholdCritic);
          $('#edit_component_ratio_modifier').val(component.ratioModifier);
+         $('#edit_component_useForGlobalRatio').prop('checked', (component.useForGlobalRatio == '1' ? true:false ));
 
          var modalBox = $('#editComponentModal');
          modalBox.foundation('reveal', 'open');
 
          $('#edit_component').foundation({bindings:'events'}).off('valid.fndtn.abide').on('valid.fndtn.abide', function () {
-             webservice.call('updateComponent', $(this).serialize(), function(){
+             webservice.call('updateComponent', $(this).serialize() + ($('#edit_component_useForGlobalRatio').is(':checked') ? '' : '&useForGlobalRatio=0'), function(){
 
                  Component.redrawComponent(id, {
                      name :  $('#edit_component_name').val(),
                      thresholdWarning :  $('#edit_component_threshold_warning').val(),
                      thresholdCritic :  $('#edit_component_threshold_critic').val(),
-                     ratioModifier : $('#edit_component_ratio_modifier').val()
+                     ratioModifier : $('#edit_component_ratio_modifier').val(),
+                     useForGlobalRatio : ($('#edit_component_useForGlobalRatio').is(':checked') ? 1 : 0)
                  } );
 
                  modalBox.foundation('reveal', 'close');
@@ -256,6 +258,8 @@ var Component = {
         var previousSibling = UI.dataTable.getDataTablePreviousSibling(id);
         UI.dataTable.removeTable(id);
         UI.dataTable.createComponent(Component.componentList[key], false, previousSibling);
+
+        Dashboard.setGlobalRatio(Component.componentList[key].dashboard_id);
         UI.tab.mainPanelPopulate();
     },
 
@@ -264,12 +268,13 @@ var Component = {
 
         $('#edit_component_dashboard_id').val(dashboard_id);
         $('#edit_component_id, #edit_component_name, #edit_component_threshold_warning, #edit_component_threshold_critic').val('');
+        $('#edit_component_useForGlobalRatio').prop('checked', false);
 
         var modalBox = $('#editComponentModal');
         modalBox.foundation('reveal', 'open');
 
         $('#edit_component').foundation({bindings:'events'}).off('valid.fndtn.abide').on('valid.fndtn.abide', function () {
-            webservice.call('createComponent', $(this).serialize(), function(data){
+            webservice.call('createComponent', $(this).serialize() + ($('#edit_component_useForGlobalRatio').is(':checked') ? '' : '&useForGlobalRatio=0'), function(data){
 
                 Component.componentList.push({
                     id : data.id,
@@ -278,6 +283,7 @@ var Component = {
                     thresholdCritic : $('#edit_component_threshold_critic').val(),
                     dashboard_id : $('#edit_component_dashboard_id').val(),
                     ratioModifier : $('#edit_component_ratio_modifier').val(),
+                    useForGlobalRatio : ($('#edit_component_useForGlobalRatio').is(':checked') ? 1 : 0),
                     elements : [],
                     indicators : [],
                     dateColumns : [],

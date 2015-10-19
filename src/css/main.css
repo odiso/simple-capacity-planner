@@ -69,6 +69,12 @@ body {
     padding:2em;
 }
 
+.loading
+{
+    text-align:center;
+    margin: 100px;
+}
+
 
 /* --------------------------------------------------
     Tabs
@@ -235,7 +241,7 @@ div.dataTables_wrapper {
     margin-right:1.2em;
     font-size:0.85em;
 }
-.aDataTable tbody td .cell{
+.aDataTable .cell{
     display:inline-block;
     margin:auto;
 }

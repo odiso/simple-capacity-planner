@@ -21,7 +21,7 @@ languagesDictionnary['fr'] = {
 
     create_dashboard_name_label : 'Nom :',
     create_dashboard_name_placeholder : 'Saisissez le nom',
-    create_dashboard_name_error : 'Le nom est obligatoire et doit être une chaîne de caractère.',
+    create_dashboard_name_error : 'Le nom est obligatoire et doit être une chaîne entre 1 et 256 caractères.',
 
     rename_button : 'Renommer',
     delete_button : 'Supprimer',
@@ -29,14 +29,14 @@ languagesDictionnary['fr'] = {
     add_button :    'Ajouter',
     add_component_button :    'Ajouter un composant',
 
-    rename_dashboard_form_title : 'Renommer le dashboard',
+    edit_dashboard_form_title : 'Modifier le dashboard',
     delete_dashboard_confirmation : 'Êtes-vous certain de vouloir supprimer le dashboard "{0}" ?',
 
     edit_component_form_title : 'Création / Modification d\'un composant',
 
     edit_component_name : 'Nom',
     edit_component_name_placeholder : 'Nom',
-    edit_component_name_error : 'Le nom est obligatoire et doit être une chaîne de caractère.',
+    edit_component_name_error : 'Le nom est obligatoire et doit être une chaîne entre 1 et 256 caractères.',
 
     edit_component_threshold_warning : 'Seuil d\'alerte (%)',
     edit_component_threshold_warning_placeholder : '60',
@@ -52,6 +52,8 @@ languagesDictionnary['fr'] = {
     ratio_modifier_ruleOutMaxCapacity : 'Soustraire la capacité du plus grand élément (marge de sécurité)',
     ratio_modifier_ruleOutMaxCapacity_help : 'La capacité du plus grand élément n\'est pas prise en compte, en tant que marge de sécurité supplémentaire.',
 
+    edit_component_useForGlobalRatio : 'Utiliser ce composant dans le ratio global du dashboard',
+
     rename_component_form_title : '',
 
     delete_component_confirmation : 'Êtes-vous certain de vouloir supprimer le composant "{0}" ?',
@@ -64,7 +66,7 @@ languagesDictionnary['fr'] = {
 
     edit_element_name : 'Nom',
     edit_element_name_placeholder : 'Nom',
-    edit_element_name_error : 'Le nom est obligatoire et doit être une chaîne de caractère.',
+    edit_element_name_error : 'Le nom est obligatoire et doit être une chaîne entre 1 et 256 caractères.',
 
     edit_element_value : 'Valeur de référence',
     edit_element_value_placeholder : 'Valeur de référence',
@@ -72,7 +74,7 @@ languagesDictionnary['fr'] = {
 
     edit_element_key : 'Clé de référence',
     edit_element_key_placeholder : 'Clé de référence',
-    edit_element_key_error : 'La clé de référence est obligatoire et doit être une chaîne de caractère simple & unique.',
+    edit_element_key_error : 'La clé de référence est obligatoire et doit être une chaîne de caractère simple & unique, entre 1 et 32 caractères.',
 
     edit_indicator_form_title : 'Définir la valeur de l\'élément "{0}" pour {1} :',
     edit_indicator_value : 'Valeur mensuelle',

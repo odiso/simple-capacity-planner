@@ -7,17 +7,17 @@ UI.tab = {
 
         $('<li class="tab-title" id="dashboardTab-' + dashboard.id + '"><a href="#dashboardPanel-' + dashboard.id + '">' + dashboard.name + '</a></li>')
             .insertBefore('#dashboardTab-add');
-
         $('<div class="content" id="dashboardPanel-' + dashboard.id + '"></div>').insertBefore('#dashboardPanel-add');
 
         $('#dashboardPanel-' + dashboard.id).append('\
-            <a href="#" id="delete-dashboard-' + dashboard.id + '" class="button tiny alert right">' + l.get('delete_button') + '</a>\
-            <a href="#" id="rename-dashboard-' + dashboard.id + '" class="button tiny secondary right smallMarginRight">' + l.get('rename_button') + '</a>\
+            <h3 class="left">' + dashboard.name  + '</h3>\
+            <a href="#" id="delete-dashboard-' + dashboard.id + '" class="button tiny alert right ">' + l.get('delete_button') + '</a>\
+            <a href="#" id="edit-dashboard-' + dashboard.id + '" class="button tiny secondary right smallMarginRight">' + l.get('edit_button') + '</a>\
             <a href="#" id="add-component-' + dashboard.id + '" class="button tiny right smallMarginRight">' + l.get('add_component_button') + '</a>\
         ');
 
-        $('#rename-dashboard-' + dashboard.id).click(function () {
-            Dashboard.updateName(dashboard.id, dashboard.name);
+        $('#edit-dashboard-' + dashboard.id).click(function () {
+            Dashboard.updateDashboard(dashboard.id, dashboard.name);
         });
         $('#delete-dashboard-' + dashboard.id).click(function () {
             Dashboard.remove(dashboard.id, dashboard.name);
@@ -25,6 +25,8 @@ UI.tab = {
         $('#add-component-' + dashboard.id).click(function () {
             Component.createComponent(dashboard.id);
         });
+
+        Dashboard.setGlobalRatio(dashboard.id);
 
         $('#create_dashboard_name').val('');
 
@@ -43,12 +45,12 @@ UI.tab = {
     renameTab: function (id, name) {
         $('#dashboardTab-' + id).find('a').html(name);
         $('#rename-dashboard-' + id).unbind('click').click(function () {
-            Dashboard.updateName(id, name);
+            Dashboard.updateDashboard(id, name);
         });
 
         $(document).foundation();
-
     },
+
 
     removeTab: function (id) {
         $('#dashboardTab-' + id).remove();
@@ -69,7 +71,8 @@ UI.tab = {
             for(var d in Dashboard.dashboardList)
             {
                 var currentDashboard = Dashboard.dashboardList[d];
-                $('#dashboardPanel-main').append('<h3>' + currentDashboard.name + '</h3>');
+                $('#dashboardPanel-main').append('<h3>' + currentDashboard.name + currentDashboard.currentPercentageValue + '</h3>' );
+
 
                 if(Component.componentList.length)
                 {

@@ -37,6 +37,7 @@ var Language = function(languageToLoad){
             var objValue = $(this).attr('value');
             var textReplacement = l.get($(this).attr('data-text'));
             // innerHTML or value check
+            // TODO : except options !
             if( objValue !== undefined && objValue !== false && $(this).prop('tagName') != 'OPTION'){
                 $(this).val(textReplacement);
             }

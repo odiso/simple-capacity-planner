@@ -45,7 +45,7 @@ UI.dataTable = {
                     columnDefs: [
                         { width: "400px", type: 'num-html', targets: 0 },
                         { width: "20px", targets: "smallTh" },
-                        { width: "170px", targets: "_all" }
+                        { width: "190px", targets: "_all" }
                     ]
                 }
             );

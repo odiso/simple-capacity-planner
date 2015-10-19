@@ -12,7 +12,7 @@ class Component {
     {
         $database = new Database();
 
-        $database->query("SELECT `id`, `name`, `dashboard_id`, `thresholdWarning`,`thresholdCritic`,`ratioModifier` FROM `component`");
+        $database->query("SELECT `id`, `name`, `dashboard_id`, `thresholdWarning`,`thresholdCritic`,`ratioModifier`,`useForGlobalRatio` FROM `component`");
         $components = $database->resultset();
 
         // populate elements for dataTable display
@@ -48,7 +48,7 @@ class Component {
     {
         $database = new Database();
 
-        $database->query("SELECT `id`, `name`, `dashboard_id`, `thresholdWarning`,`thresholdCritic`,`ratioModifier`
+        $database->query("SELECT `id`, `name`, `dashboard_id`, `thresholdWarning`,`thresholdCritic`,`ratioModifier`,`useForGlobalRatio`,`ratioModifier`
         FROM `component`
         WHERE `id` = :id
         LIMIT 1");
@@ -73,7 +73,7 @@ class Component {
         return $database->lastInsertId();
     }
 
-    public static function updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier)
+    public static function updateComponent($id, $name, $dashboard_id, $thresholdWarning, $thresholdCritic, $ratioModifier, $useForGlobalRatio)
     {
         if(!self::getComponent($id)){
             throw new Exception('Component "' . $id . '" does not exists.');
@@ -89,7 +89,8 @@ class Component {
           `dashboard_id` = :dashboard_id,
           `thresholdWarning` = :thresholdWarning,
           `thresholdCritic` = :thresholdCritic,
-          `ratioModifier` = :ratioModifier
+          `ratioModifier` = :ratioModifier,
+          `useForGlobalRatio` = :useForGlobalRatio
          WHERE `id` = :id
           ");
 
@@ -99,6 +100,7 @@ class Component {
         $database->bind(':thresholdWarning', $thresholdWarning, PDO::PARAM_INT);
         $database->bind(':thresholdCritic', $thresholdCritic, PDO::PARAM_INT);
         $database->bind(':ratioModifier', $ratioModifier, PDO::PARAM_STR);
+        $database->bind(':useForGlobalRatio', $useForGlobalRatio, PDO::PARAM_INT);
 
         $database->execute();
         return true;

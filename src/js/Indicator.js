@@ -37,7 +37,7 @@ var Indicator = {
 
                 if(!cellFound)
                 {
-                    Component.componentList[componentKey].indicators.push({
+                    Indicator.insertIndicator(componentKey, {
                         element_id: element_id,
                         month: month,
                         percent: Math.round(parseFloat($('#edit_indicator_value').val())*100/parseFloat($('#edit_indicator_referenceValue').val())),
@@ -56,5 +56,11 @@ var Indicator = {
 
 
 
+    },
+
+    insertIndicator : function(componentKey, indicator)
+    {
+        Component.componentList[componentKey].indicators.push(indicator);
+        Component.componentList[componentKey].indicators.sort(UI.dataTable.dateColumnSorter);
     }
 };
